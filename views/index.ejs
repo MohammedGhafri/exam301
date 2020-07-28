@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes Websites</title>
+    <link rel="stylesheet" href="/styles/reset.css">
+
+    <link rel="stylesheet" href="/styles/layout.css">
+</head>
+
+<body>
+    <header>
+        <h1>JOKES PAGES</h1>
+        <nav>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="/favouritPage"> FAV</a> </li>
+                <li> <a href="/randomJokes">RANDOMLY joke</a></li>
+            </ul>
+        </nav>
+
+    </header>
+    <main>
+        <section class="sectionIndex">
+             <% joke.forEach((item,idx)=>{ %>
+            
+            <div>
+<h2>
+   Jokes # <%= idx+1 %>
+</h2>
+                <p>
+    
+                    <%= Object.values(item)[0] %>
+                </p>
+                <p><%= Object.values(item)[1] %></p>
+                <p><%= Object.values(item)[2] %></p>
+
+
+                <form class="mainForm" action="/fav" method="post">
+                <input type="text" name="topic" value="<%= Object.values(item)[0] %>">
+                <input type="text" name="title" value="<%= Object.values(item)[1] %>">
+                <input type="text" name="content" value="<%= Object.values(item)[2] %>">
+                <input type="submit" value="ADD TO MY FAV JOKES">
+
+
+            </form>
+            </div>
+            <%})%>
+        </section>
+       
+    </main>
+
+</body>
+
+</html>
