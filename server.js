@@ -10,9 +10,11 @@ const superagent=require('superagent');
 const server=express();
 const PORT=process.env.PORT;
 
+
+
+
 server.use(express.static('./public'));
 server.use(methodOverride('metho'));
-
 server.use(express.json());
 server.use(express.urlencoded({extended:true}));
 
@@ -22,6 +24,7 @@ server.set('view engine', 'ejs');
 const client=new pg.Client(process.env.DATABASE_URL);
 
 
+//---------------------------------------routes---------------------//
 server.get('/',homefunc);
 server.get('/favouritPage',favPage);
 server.post('/fav',addtoFav);
@@ -30,6 +33,11 @@ server.put('/update/:updId',updateJoke)
 server.get('/randomJokes',randomlyJoke)
 
 
+
+
+
+
+//----------------functions--------------------//
 function randomlyJoke(req,res){
     const URL=`https://official-joke-api.appspot.com/jokes/programming/random`;
     superagent.get(URL)
@@ -91,6 +99,7 @@ function homefunc(req,res){
     superagent.get(URL)
     .then(data=>data.body.map(item=>new Joke(item)))
     .then(result=>res.render('index',{joke:result}))
+    .catch(error=>res.status(500).errorhandler(error))
     // .then(data=>res.send(data.body))
     // res.render('index')
 }
@@ -101,11 +110,17 @@ function homefunc(req,res){
 
 
 
-
+function errorhandler(error,req,res){
+    res.send(error)
+}
 
 client.connect()
 .then(data=>{
     server.listen(PORT,()=>console.log("You are listening on PORT:",PORT))
+})
+
+server.get('*',(req,res)=>{
+    res.status(404).send('Wrong Routes ♥♠♦♥☻☺☻♥♠♦♥')
 })
 
 
