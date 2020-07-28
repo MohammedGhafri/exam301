@@ -1,0 +1,24 @@
+p{
+    color: red;
+}
+div{
+    width: 30%;
+}
+.sectionIndex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.mainForm>*{
+    display: none;
+}
+.mainForm>:last-child{
+    display: block;
+}
+
+
+/*fav page*/
+
+.formUpdate>*{
+    display: block;
+}
