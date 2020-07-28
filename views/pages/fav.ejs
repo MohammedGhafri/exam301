@@ -11,17 +11,27 @@
 </head>
 
 <body>
-    <header></header>
+    <header>
+        <h1>JOKES PAGES</h1>
+        <nav>
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/favouritPage"> FAV</a> </li>
+                <li> <a href="/randomJokes">RANDOMLY joke</a></li>
+            </ul>
+        </nav>
+
+    </header>
     <main>
-        <section>
+        <section class="sectionFav">
 
             <% if(fav.length==0){%>
             <p>
                 No avaliable JOKES ♣☺♣••♥☻♥
             </p>
             <% }else{%>
-            <div>
                 <% fav.forEach(item=>{ %>
+                <div>
                 <h2>
                     <%= Object.values(item)[1] %>
 
@@ -46,14 +56,15 @@
 
                 </form>
 
-                <%  }) %>
             </div>
+                <%  }) %>
             <% } %>
 
 
         </section>
     </main>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="/app.js"></script>
 </body>
 
 </html>

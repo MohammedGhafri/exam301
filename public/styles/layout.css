@@ -1,24 +1,65 @@
-p{
-    color: red;
+header{
+    height: 100px;
+    background-color: indigo;
+    margin-bottom: 3%;
 }
-div{
+header>h1{
+
+    text-align: center;
+    padding: 50% 0 0 auto;
+}
+nav ul li{
+    display: inline-block;
+    color: lavender;
+    margin: 3% 12%;
+}
+a{
+    color: #f3f3f3;
+    text-decoration: none;
+}
+
+p{
+    color: green;
+    margin: 3%;
+}
+.sectionIndex div{
+padding-top: 1%;
     width: 30%;
+    background-color: #f3f3f3;
+    margin-bottom: 3%;
+    text-align: center;
 }
 .sectionIndex{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
 }
+.mainForm{
+    display: block;
+}
 .mainForm>*{
+    margin: auto;
     display: none;
+    
 }
 .mainForm>:last-child{
     display: block;
+    border: 1px solid gray;
+    height: 20px;
+    background-color: indigo;
+    margin-bottom: 1%;
 }
 
 
 /*fav page*/
-
+.sectionFav{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.sectionFav div{
+    width: 25%;
+}
 .formUpdate>*{
     display: block;
 }
